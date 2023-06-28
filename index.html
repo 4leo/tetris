@@ -1,0 +1,159 @@
+
+<!-- Leo Tetris Version 0.1      -->
+<!-- http://rozenlab.com/tetris  -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Tetris</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.png">
+    <meta name="viewport" content="width=545, user-scalable=no">
+
+    <style>
+    html, body {
+        width: 100%;
+        //height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    body {
+        background-image: url("background/restaurant_icons.webp");
+    }
+
+    .container {
+        width: 525px;
+        user-select: none;
+        zoom: 0.79;
+        margin-left: 20px;
+    }
+
+    .tetrisLogo {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 35px;
+        font-family: digital-7-italic;
+        color: #863064;
+        letter-spacing: 20px;
+    }
+
+    @font-face {
+        font-family: 'digital-7-italic';
+        src: url('digital-7-italic.ttf');
+    }
+
+    .keyboard {
+        height: 300px;
+        width: 525px;
+        margin: 50px 0 70px 0;
+        position: relative;
+    }
+
+    .key {
+        border: 1px solid #c19d9d;
+        border-radius: 100%;
+        position: absolute;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        background: -webkit-linear-gradient(top, #f6ea95 0%,#fce239 100%);
+    }
+
+    .key:active  {
+        box-shadow: none;
+    }
+
+    .med {
+        height: 80px;
+        width: 80px;
+    }
+
+    .big {
+        height: 121px;
+        width: 121px;
+    }
+
+    .small {
+        height: 40px;
+        width: 40px;
+    }
+
+    .keyLabel {
+        position: absolute;
+        font-size: 11px;
+        font-family: Arial;
+        color: #522892;
+    }
+
+    .start {
+        z-index: 999999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #292929;
+        background-image: url("background/use_your_illusion.webp");
+        font-size: 60px;
+        color: #522892;
+        text-align: center;
+        padding-top: 450px;
+        font-family: digital-7-italic;
+        letter-spacing: 20px;
+    }
+    </style>
+</head>
+
+<body>
+<div id="scrRes" style="position: absolute; padding: 5px 0 0 5px; width: 80px; height: 25px; z-index: 999;"></div>
+<div class="start" onclick="openFullscreen(); newGameTetris(); this.style.display = 'none'">-tetris-</div>
+
+<div id="container" class="container" onclick="openFullscreen();">
+   <div class="tetrisLogo">-Tetris-</div>
+    <canvas id="screen"></canvas>
+    <hr style=" margin: 30px 40px 0 20px;">
+
+    <div class="keyboard">
+        <div id="leftKeyEvent" class="key med" style="top: 103px; left: 15px;">
+            <div class="keyLabel" style="top: 100px; left: 0;">LEFT</div>
+        </div>
+
+        <div id="rightKeyEvent" class="key med" style="top: 103px; left: 160px;">
+            <div class="keyLabel" style="top: 100px; left: 22px;">RIGHT</div>
+        </div>
+
+        <div id="quickKeyEvent" class="key med" style="top: 30px; left: 87px;">
+            <div class="keyLabel" style="top: 35px; left: 95px;">QUICK</div>
+        </div>
+
+        <div id="downKeyEvent" class="key med" style="top: 176px; left: 87px;">
+            <div class="keyLabel" style="top: 100px; left: 22px;">DOWN</div>
+        </div>
+
+        <div id="rotateKeyEvent" class="key big" style="top: 110px; left: 305px;">
+            <div class="keyLabel" style="top: 140px; left: 35px;">ROTATE</div>
+        </div>
+
+        <div id="resetKeyEvent" class="key small" style="top: 30px; left: 260px;">
+            <div class="keyLabel" style="top: 50px; left: 0;">RESET</div>
+        </div>
+
+        <div id="muteSoundKeyEvent" class="key small" style="top: 30px; left: 315px;">
+            <div class="keyLabel" style="top: 50px; left: 0;">SOUND</div>
+        </div>
+
+        <div id="pauseKeyEvent" class="key small" style="top: 30px; left: 375px;">
+            <div class="keyLabel" style="top: 50px; left: 0;">PAUSE</div>
+        </div>
+
+        <div id="optionsKeyEvent" class="key small" style="top: 30px; left: 440px;">
+            <div class="keyLabel" style="top: 50px; left: 0;">OPTIONS</div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
